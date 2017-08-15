@@ -1,13 +1,20 @@
-function getShortMessages(messages) {
-    var mapped =
-     messages.map(function(item){
-         return item.message
-                })
-   return mapped.filter(function(item)
-               {return item.length < 50})
-    
-   }
-   
-  
-module.exports = getShortMessages
 
+function checkUsersValid(goodUsers) {
+      return function allUsersValid(submittedUsers) {                   
+        return submittedUsers.every(function(item){            
+             return goodUsers.some(function(x) {                 
+                 return x.id === item.id 
+
+            })
+
+        })
+
+        }; 
+
+    };
+  
+   
+
+
+  module.exports = checkUsersValid
+  
