@@ -1,20 +1,14 @@
-
-function checkUsersValid(goodUsers) {
-      return function allUsersValid(submittedUsers) {                   
-        return submittedUsers.every(function(item){            
-             return goodUsers.some(function(x) {                 
-                 return x.id === item.id 
-
-            })
-
-        })
-
-        }; 
-
-    };
+function countWords(inputWords) {
+return inputWords.reduce(function(acc,item){
+if (item in acc) {
+  acc[item]++
+}
+else {acc[item] = 1}       
+return acc}
+, {})
+  }
   
-   
+  module.exports = countWords
 
 
-  module.exports = checkUsersValid
   
